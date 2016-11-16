@@ -1,0 +1,78 @@
+{
+  "predix-asset": [
+   {
+    "credentials": {
+     "instanceId": "b8609eb7-bee9-40af-a907-7dd4c94e3f88",
+     "scriptEngine_uri": "https://b8609eb7-bee9-40af-a907-7dd4c94e3f88.predix-script-engine.run.aws-usw02-pr.ice.predix.io",
+     "uri": "https://predix-asset.run.aws-usw02-pr.ice.predix.io",
+     "zone": {
+      "http-header-name": "Predix-Zone-Id",
+      "http-header-value": "b8609eb7-bee9-40af-a907-7dd4c94e3f88",
+      "oauth-scope": "predix-asset.zones.b8609eb7-bee9-40af-a907-7dd4c94e3f88.user"
+     }
+    },
+    "label": "predix-asset",
+    "name": "mmhack-asset",
+    "plan": "Tiered",
+    "provider": null,
+    "syslog_drain_url": null,
+    "tags": [],
+    "volume_mounts": []
+   }
+  ],
+  "predix-timeseries": [
+   {
+    "credentials": {
+     "ingest": {
+      "uri": "wss://gateway-predix-data-services.run.aws-usw02-pr.ice.predix.io/v1/stream/messages",
+      "zone-http-header-name": "Predix-Zone-Id",
+      "zone-http-header-value": "e3fba85e-d334-409e-87ce-3a17e71b4946",
+      "zone-token-scopes": [
+       "timeseries.zones.e3fba85e-d334-409e-87ce-3a17e71b4946.user",
+       "timeseries.zones.e3fba85e-d334-409e-87ce-3a17e71b4946.ingest"
+      ]
+     },
+     "query": {
+      "uri": "https://time-series-store-predix.run.aws-usw02-pr.ice.predix.io/v1/datapoints",
+      "zone-http-header-name": "Predix-Zone-Id",
+      "zone-http-header-value": "e3fba85e-d334-409e-87ce-3a17e71b4946",
+      "zone-token-scopes": [
+       "timeseries.zones.e3fba85e-d334-409e-87ce-3a17e71b4946.user",
+       "timeseries.zones.e3fba85e-d334-409e-87ce-3a17e71b4946.query"
+      ]
+     }
+    },
+    "label": "predix-timeseries",
+    "name": "mmhack-time-series",
+    "plan": "Bronze",
+    "provider": null,
+    "syslog_drain_url": null,
+    "tags": [
+     "timeseries",
+     "time-series",
+     "time series"
+    ],
+    "volume_mounts": []
+   }
+  ],
+  "predix-uaa": [
+   {
+    "credentials": {
+     "issuerId": "https://98d4176d-a268-405b-a461-3f9944793a31.predix-uaa.run.aws-usw02-pr.ice.predix.io/oauth/token",
+     "subdomain": "98d4176d-a268-405b-a461-3f9944793a31",
+     "uri": "https://98d4176d-a268-405b-a461-3f9944793a31.predix-uaa.run.aws-usw02-pr.ice.predix.io",
+     "zone": {
+      "http-header-name": "X-Identity-Zone-Id",
+      "http-header-value": "98d4176d-a268-405b-a461-3f9944793a31"
+     }
+    },
+    "label": "predix-uaa",
+    "name": "mmhack-uaa",
+    "plan": "Tiered",
+    "provider": null,
+    "syslog_drain_url": null,
+    "tags": [],
+    "volume_mounts": []
+   }
+  ]
+}

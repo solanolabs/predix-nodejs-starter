@@ -12,8 +12,9 @@ applications:
 env:
     node_env: cloud
     uaa_service_label : predix-uaa
-    #clientId: {Enter client ID, e.g. app_client_id, and place it here}
-    #base64ClientCredential: dWFhLWNsaWVudC1pZDp1YWEtY2xpZW50LWlkLXNlY3JldA==
+    clientId: app_client_id
+    base64ClientCredential: YXBwX2NsaWVudF9pZDpzZWNyZXQ=
+    USE_VCAP_DUMP: 1
     # Following properties configured only for Timeseries WindData service Integration
     #windServiceUrl: "{URL of the microservice <your-name>-winddata-timeseries-service}, e.g.  https://your-name-winddata-timeseries-service.run.asw-usw02-pr.predix.io"
     #assetMachine: my-type
