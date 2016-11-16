@@ -98,7 +98,11 @@ if(node_env === 'development') {
 	proxy.setUaaConfig(devConfig);
 } else {
 	// read VCAP_SERVICES
-	var vcapsServices = JSON.parse(process.env.VCAP_SERVICES);
+	if (process.env.USE_VCAP_DUMP) {
+		var vcapsServices = require('./vcamp_dump.json');
+	} else {
+		var vcapsServices = JSON.parse(process.env.VCAP_SERVICES);
+	}
 	var uaaService = vcapsServices[process.env.uaa_service_label];
 	var assetService = vcapsServices['predix-asset'];
 	var timeseriesService = vcapsServices['predix-timeseries'];

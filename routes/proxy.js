@@ -22,7 +22,11 @@ if (corporateProxyServer) {
 var clientId = process.env.clientId;
 var base64ClientCredential = process.env.base64ClientCredential;
 var uaaURL = (function() {
-	var vcapsServices = process.env.VCAP_SERVICES ? JSON.parse(process.env.VCAP_SERVICES) : {};
+	if (process.env.USE_VCAP_DUMP) {
+		var vcapsServices = require('../vcamp_dump.json');
+	} else {
+		var vcapsServices = process.env.VCAP_SERVICES ? JSON.parse(process.env.VCAP_SERVICES) : {};
+	}
 	var uaaService = vcapsServices['predix-uaa'];
 	var uaaURL;
 
@@ -170,7 +174,11 @@ router.use('/', function(req,res,next){
 var setProxyRoutes = function() {
 	var vcapString = process.env.VCAP_SERVICES;
 	var serviceKeys = [];
-	vcapServices = vcapString ? JSON.parse(vcapString) : vcapServices;
+	if (process.env.USE_VCAP_DUMP) {
+		var vcapServices = require('../vcamp_dump.json');
+	} else {
+		var vcapServices = vcapString ? JSON.parse(vcapString) : vcapServices;
+	}
 	console.log('vcaps: ' + JSON.stringify(vcapServices));
 
 	serviceKeys = Object.keys(vcapServices);
